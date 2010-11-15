@@ -1,0 +1,12 @@
+<% t "Search" -%>
+
+<h1>Search Results</h1>
+
+<h2>Showing <%= pluralize(@packs.length, "pack") %> of <%= @packs_found_total_count -%> found for <%= @query ? "\"#{@query}\"" : "" %></h2>
+
+<%= view_privileges_notice %>
+<br/>
+
+<%= render :partial => "packs/table", :locals => { :collection => @packs, :query => @query } %>
+
+<br />

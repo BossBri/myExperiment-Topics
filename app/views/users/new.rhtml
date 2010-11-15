@@ -1,0 +1,196 @@
+<% t "Register / Sign up" -%>
+
+<h1 style="margin-bottom: 1.3em;">Register for <%= Conf.sitename %></h1>
+
+<%= error_messages_for :user %>
+
+<div class="box_infotext">
+	<strong>By registering, you are indicating that you have read and agree that:</strong> 
+	You are responsible for any content that you upload. You may remove your content at any time. 
+	We may make copies for operational purposes. This service is governed by the 
+	<%= link_to "JANET Acceptable Use Policy", "http://www.ja.net/services/publications/policy/aup.html", :popup => true -%>. 
+	Takedown requests will be reviewed by the <%= Conf.sitename %> Management Committee. 
+	We will take every care to preserve data but we will not be liable for loss or damage to data while it is stored within <%= Conf.sitename %>. 
+	We receive and store certain types of information whenever you interact with us which we will 
+	use only for operational purposes and to support academic research into the use of <%= Conf.sitename %>. 
+	We will not make personally identifiable data available to third parties without consent. 
+	Please contact us if you have any queries about our terms or our privacy policy.
+	<br/><br/>
+	<strong>Please note: all user profiles are public on <%= Conf.sitename %></strong> and 
+	therefore can be viewed by anyone and be indexed by search engines such as Google.
+	However, usernames and registered email addresses (different to profile email addresses) are not exposed.
+</div> 
+
+<br />
+<br />
+
+<% form_for(:user, :url => users_path) do |f| %>
+
+  <center>
+    <h2>Anti-spam verification</h2>
+    <table style="margin-top: 2em;">
+      <tr>
+        <td>
+          <% c = prepare_captcha :type => :image -%>
+          <%= captcha_image_tag c -%>
+        </td>
+        <td style="vertical-align: top;">
+          <%= captcha_hidden_field c, 'validation' -%>
+          <%= captcha_label 'validation', 'Type in the text from the image on the left:' -%><br/>
+          <%= captcha_text_field 'validation', :size => 40 -%>
+        </td>
+      </tr>
+    </table>
+  </center>
+      
+  <br />
+  <br />
+
+  	<div class="fold">
+  		<div class="foldTitle">
+      	Register with a Username and Password
+      </div>
+     	<div class="foldContent" style="display: block;">
+			
+				<table>
+					<tr>
+						<td style="width: 50%; padding-right: 0.5em; text-align: left; vertical-align: top;">
+							
+							<div class="box_simple">
+								<p style="color: #990000; font-weight: bold; font-size: 108%;">First...</p>
+								<p>
+									Provide an <b>email address</b>:
+									<span style="margin-left: 0.5em; font-size: 85%; vertical-align: middle;"><%= link_to_function "Why?" + expand_image("0.2em"), visual_effect(:toggle_blind, "email_why", :duration => 0.3) %></span>
+								</p>
+								<div id="email_why" class="box_dynamic_help" style="display: none;">
+									<p style="line-height: 1.2em;">We need your email address to confirm your user account and prevent abuse of this site.</p>
+									<p>You also benefit by being able to:</p>
+									<ul style="margin-top: 0.1em;">
+										<li>Receive email notifications for friendship requests, group invitations and so on [optional].</li>
+										<li>Reset your password in case you have forgotten it (only for accounts with a username/password).</li>
+									</ul>
+								</div>
+								
+								<p>
+									<%= hidden_field_tag "invitation_token", @token -%>
+									<%= f.text_field :unconfirmed_email, :value => @email_value, :size => '50' %>
+								</p>
+								<p style="font-size: 85%; color: #333333;">
+									Before submitting, please check that you have spelt it correctly. 
+								</p>
+								
+								<br/>
+								
+								<table>
+									<tr>
+										<td style="text-align: left; vertical-align: top; padding-left: 0;"><%= check_box_tag('make_email_public') %></td>
+										<td style="text-align: left;">
+											Make my email public.
+											<br/>
+											<small>This will <b>copy</b> your email address to your Profile.</small>
+										</td>
+									</tr>
+								</table>
+								
+								<table>
+									<tr>
+										<td style="text-align: left; vertical-align: top; padding-left: 0;"><%= f.check_box :receive_notifications %></td>
+										<td style="text-align: left;">
+										  I would like to receive email notifications for events that relate to me
+									    <%= link_to_function help_icon_with_tooltip("By ticking this box you will receive email notifications every time<br/>when you get messages, receive membership requests for the<br/>groups that you own and for friendships requests from other users."),
+																			 visual_effect(:toggle_blind, "notifications_help", :duration => 0.3) %>
+											<div id="notifications_help" class="box_dynamic_help" style="display: none;">
+										    By ticking this box you will receive email notifications every time when you get messages, receive membership requests for the groups that you own and for friendships requests from other users.
+									    </div>
+										</td>
+									</tr>
+								</table>
+								
+							</div>
+							
+						</td>
+						
+						<td style="width: 50%; padding-left: 0.5em; text-align: left; vertical-align: top;">
+							
+							<div class="box_simple">
+								<p style="color: #990000; font-weight: bold; font-size: 108%;">Then...</p>
+								<p>
+								  <b>Username</b>
+									<%= link_to_function help_icon_with_tooltip("Choose a username which is at least 3 characters long (don't use any special symbols other than \"_\")."),
+																			 visual_effect(:toggle_blind, "username_help", :duration => 0.3) %>
+									<br />
+									<div id="username_help" class="box_dynamic_help" style="display: none;">
+										Choose a username which is at least 3 characters long (don't use any special symbols other than "_").
+									</div>
+								  <%= f.text_field :username %>
+								</p>
+								
+								<p>
+								  <b>Password</b>
+									<%= link_to_function help_icon_with_tooltip("Your password must be at least 4 characters long and is case sensitive."),
+																			 visual_effect(:toggle_blind, "password_help", :duration => 0.3) %>
+									<br />
+									<div id="password_help" class="box_dynamic_help" style="display: none;">
+										Your password must be at least 4 characters long and is case sensitive.
+									</div>
+								  <%= f.password_field :password %>
+								</p>
+								
+								<p>
+								  <b>Confirm Password</b><br />
+								  <%= f.password_field :password_confirmation %>
+								</p>
+							</div>
+							
+						</td>
+					</tr>
+				</table>
+
+				<br/>
+				
+				<p class="box_infotext">
+					When you click register, an email will be sent to you with a confirmation link. Your account will only be activated once you follow this link.
+					We reserve the right to remove <b>unactivated</b> accounts after 30 days.
+				</p>
+				
+				<br/>
+				
+				<p style="text-align: center;">
+				  <%= submit_tag "Register", :disable_with => "Registering&hellip;" %>
+				</p>
+				
+				<br/>
+				
+				<p style="font-size: 93; font-style: italic; color: #666666;">
+					Note that the display name that other people will see can be different to your username 
+					and can be changed by editing your account after you have signed up.
+				</p>
+			</div>
+  	</div>
+<% end %>
+
+<center><span style="font-size: 138.5%; font-weight: bold;">OR</span></center>
+
+<% form_tag session_path do %>
+	<div class="fold" style="margin-top: 2em;">
+		<div class="foldTitle">
+    	Register with an OpenID
+    </div>
+    <div class="foldContent" style="display: block;">
+			<p class="box_infotext">
+				OpenID is a distributed identity system which gives you single sign-on anywhere that OpenID is supported. If you already have an OpenID you can enter it here and your <%= Conf.sitename %> account will automatically be created (note that if you have an AOL or AIM account, or a LiveJournal or Wordpress blog, then you already have an OpenID).
+			</p>
+			
+			<p><b>Don't have an OpenID? Get one FREE from <%= link_to 'myOpenID', "https://www.myopenid.com/" %> or <%= link_to 'other providers', "http://openiddirectory.com/openid-providers-c-1.html" %>.</b></p>
+			
+			<p>
+				<strong>OpenID</strong><br/>
+				<%= text_field_tag 'openid_url', nil, :size => 35 %>
+			</p>
+			
+			<p>
+				<%= submit_tag 'Register with OpenID', :disable_with => "Verifying&hellip;" %>
+			</p>
+		</div>
+	</div>
+<% end %>

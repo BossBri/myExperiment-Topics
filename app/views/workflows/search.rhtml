@@ -1,0 +1,14 @@
+<% t "Search" -%>
+
+<%= render :partial => 'search/extra_search_help' %>
+
+<h1>Search Results</h1>
+
+<h2>Showing <%= pluralize(@workflows.length, "workflow") %> of <%= @workflows_found_total_count -%> found for <%= @query ? "\"#{@query}\"" : "" %></h2>
+
+<%= view_privileges_notice %>
+<br/>
+
+<%= render :partial => "workflows/table", :locals => { :collection => @workflows, :query => @query } %>
+
+<br />

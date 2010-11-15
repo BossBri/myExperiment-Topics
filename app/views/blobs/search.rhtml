@@ -1,0 +1,12 @@
+<% t "Search" -%>
+
+<h1>Search Results</h1>
+
+<h2>Showing <%= pluralize(@blobs.length, "file") %> of <%= @blobs_found_total_count -%> found for <%= @query ? "\"#{@query}\"" : "" %></h2>
+
+<%= view_privileges_notice %>
+<br/>
+
+<%= render :partial => "blobs/table", :locals => { :collection => @blobs } %>
+
+<br />

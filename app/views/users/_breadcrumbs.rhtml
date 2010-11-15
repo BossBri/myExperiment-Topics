@@ -1,0 +1,27 @@
+<li><%= link_to 'Users', users_path -%></li>
+
+<% if ["edit"].include? controller.action_name.to_s -%>
+	<li><b>&#187;</b></li>
+	<li><%= link_to h(@user.name), user_path(@user) -%></li>
+<% elsif @user -%>
+	<li><b>&#187;</b></li>
+	<li><%= h(@user.name) -%></li>
+<% end -%>
+
+<% if ["new", "edit", "search", "all", "forgot_password"].include? controller.action_name.to_s -%>
+  <li><b>&#187;</b></li>
+  
+  <% case controller.action_name.to_s; when "new" -%>
+    <li>Register</li>
+  <% when "edit" -%>
+    <li>Manage Account</li>
+  <% when "search" -%>  
+    <li>Search Results</li>
+  <% when "all" -%>
+    <li>All Users</li>
+	<% when "forgot_password" %>
+    <li>Forgot Password</li>
+  <% else -%>
+    <!-- no breadcrumb -->
+  <% end -%>
+<% end -%>

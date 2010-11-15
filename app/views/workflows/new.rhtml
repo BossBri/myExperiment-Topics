@@ -1,0 +1,66 @@
+<% t "New" -%>
+
+<%= javascript_include_tag :fckeditor %>
+<%= javascript_include_tag "osp.js" %>
+
+<h1>Upload Workflow</h1>
+
+<center>
+	<%= error_messages_for :workflow %>
+</center>
+
+<% form_tag({:action => :create}, :multipart => true) do %>
+
+  <!-- Workflow File -->
+	
+	<p class="step_text">1. Workflow file/script</p>
+
+	<center>
+	  <%= render :partial => 'workflow_file_selection_form' %>
+	</center>
+  
+  <br />
+	
+	<!-- Main metadata -->
+	
+	<p class="step_text">2. Main metadata</p>
+  
+	<%= render :partial => "main_metadata_form", :locals => { :new_version => false } -%>
+	
+	<br/>
+	
+	<!-- Other metadata and settings -->
+	
+	<p class="step_text" style="text-align: center;">3. Other metadata and settings</p>
+	
+	<!-- Tags -->
+  <%= render :partial => "tags/tags_form", :locals => { :edit => false, :taggable => @workflow } -%>
+                
+  <!-- Credit and Attribution -->
+  <%= render :partial => "contributions/credit_attribution_form", :locals => { :edit => false, :contributable => @workflow } -%>
+                
+  <!-- Sharing -->              
+  <%= render :partial => "contributions/sharing_form", :locals => { :edit => false, :contributable => @workflow, :update_perms => true } -%>
+                
+  <!-- License/Rights -->
+  <%= render :partial => "contributions/license_form", :locals => { :object => :workflow, :contributable => @workflow, :edit => false } -%>
+  
+	
+	<!-- Terms and conditions -->
+	
+	<p class="step_text">4. Terms and conditions</p>
+	
+  <%= render :partial => 'contributions/terms_and_conditions' %>
+	
+	<br/>
+
+	<!-- Upload and Continue -->
+	
+	<p class="step_text">5. Upload and Continue</p>
+
+  <p style="text-align: center;">
+    <%= submit_tag "Upload and Continue", :disable_with => "Uploading..." %>
+  </p>
+  
+<% end %>
+

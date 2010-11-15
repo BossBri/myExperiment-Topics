@@ -1,0 +1,35 @@
+
+<%= javascript_include_tag 'mashup' %>
+
+<% root = url_for(:controller => '/', :only_path => false) %>
+
+<h1>API version <%= "#{API_VERSION}" %></h1>
+
+<p>Please refer to the <%= Conf.sitename %> wiki for
+<a href="http://wiki.myexperiment.org/index.php/Developer:API">API documentation</a>.
+</p>
+
+
+<h2 id="try-it-out">Try it out</h2>
+
+<p>Method: 
+  <select id="custom-method">
+   <option value="GET">GET</option>
+   <option value="POST">POST</option>
+   <option value="PUT">PUT</option>
+   <option value="DELETE">DELETE</option>
+  </select>
+ URI: <input id="custom-uri" size="80" />
+  <input type="button" value="Go" onclick="javascript:doCustom()" />
+</p>
+
+<div class="try_it_out_box">
+  <p><b>Input:</b></p>
+  <textarea id="input" cols="100" style="font-size: 0.9em" rows="10"></textarea><br /><br />
+</div>
+
+<div class="try_it_out_box">
+  <p><b>Output:</b></p>
+  <textarea class="try_it_out_box" id="output" cols="100" rows="20" style="font-size: 0.9em"></textarea><br />
+</div>
+

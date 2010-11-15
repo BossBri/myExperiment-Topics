@@ -1,0 +1,51 @@
+<% t "New" -%>
+
+<%= javascript_include_tag :fckeditor %>
+<%= javascript_include_tag "osp.js" %>
+
+<h1>Upload File</h1>
+
+<%= error_messages_for :blob %>
+
+<% form_tag({:action => :create}, :multipart => true) do %>
+
+  <p style="text-align: center;">
+    <strong>File to upload: </strong>
+    <%= file_field :blob, :data %>
+  </p>
+  
+  <br/>
+  
+  <p style="text-align: center;">
+  	<strong>Title: </strong>
+		<br/>
+		<%= text_field_tag "blob[title]", nil, :size => 60 %>
+  </p>
+	
+	<br/>
+  
+  <p style="text-align: center;">
+  	<strong>Description: </strong>
+	</p>
+	<center>
+		<%= fckeditor_textarea(:blob, :body, :toolbarSet => 'Simple', :width => '600px', :height => '300px') %>
+	</center>
+
+  <br />
+
+  <%= render :partial => "tags/tags_form", :locals => { :edit => false, :taggable => @blob } %>
+  
+  <%= render :partial => "contributions/credit_attribution_form", :locals => { :edit => false, :contributable => @blob } %>
+
+  <%= render :partial => "contributions/sharing_form",  :locals => { :edit => false, :contributable => @blob, :update_perms => true } %>
+  
+  <%= render :partial => "contributions/license_form", :locals => { :object => :blob, :contributable => @blob, :edit => false } %>
+  
+  <%= render :partial => 'contributions/terms_and_conditions' %>
+	
+	<br/>
+  
+  <p style="text-align: center;">
+    <%= submit_tag "Upload and Save", :disable_with => "Uploading and saving..." %>
+  </p>
+<% end %>

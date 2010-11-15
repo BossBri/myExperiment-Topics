@@ -1,0 +1,18 @@
+<% unless collection.empty? %>
+  <div class="fold">
+    <div class="foldTitle">Contents (click to expand/contract)</div>
+    <div class="foldContent" style="display: none;">
+      <p>
+        <% num = 1 %>
+        <% collection.each_index do |i| %>
+          <% workflow = collection[i] %>
+        
+          <% if Authorization.is_authorized?("show", nil, workflow, current_user) %>
+            <a href="#<%= h(workflow.title).gsub(/ /, "_") %>"><%= num %>. <%= h(workflow.title) %></a><br/>
+            <% num = num + 1 %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+<% end %>

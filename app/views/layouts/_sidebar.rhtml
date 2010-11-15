@@ -1,0 +1,29 @@
+<%= render :partial => "gadgets/new_object" %>
+
+<% if logged_in? %>
+        <% cache(:controller => 'sidebar_cache', :action => 'user_monitor', :id => current_user.id) do -%>
+	  <%= render :partial => "gadgets/user_monitor" %>
+        <% end -%>
+
+        <% cache(:controller => 'sidebar_cache', :action => 'asset_manager', :id => current_user.id) do -%>
+  	  <%= render :partial => "gadgets/asset_manager" %>
+        <% end -%>
+
+        <% cache(:controller => 'sidebar_cache', :action => 'user_favourites', :id => current_user.id) do -%>
+  	  <%= render :partial => "gadgets/user_favourites" %>
+        <% end -%>
+
+        <% cache(:controller => 'sidebar_cache', :action => 'user_tags', :id => current_user.id) do -%>
+ 	  <%= render :partial => "gadgets/user_tags" %>
+        <% end -%>
+<% else %>
+	<% unless (controller.controller_name.to_s == "session") %>
+		<% cache(:controller => 'sidebar_cache', :action => 'sign_in') do -%>
+			<%= render :partial => "gadgets/sign_in" %>
+		<% end -%>
+	<% end %>
+<% end %>
+
+<% cache(:controller => 'sidebar_cache', :action => 'tags', :part => 'most_popular_tags') do -%>
+	<%= render :partial => "gadgets/most_popular_tags", :locals => { :limit => 25 } %>
+<% end -%>
