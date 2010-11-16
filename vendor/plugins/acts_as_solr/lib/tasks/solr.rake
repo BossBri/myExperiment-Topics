@@ -2,6 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'net/http'
 require 'active_record'
+require "win32/process" 
 require "#{File.dirname(__FILE__)}/../../config/environment.rb"
 
 namespace :solr do
@@ -17,7 +18,7 @@ namespace :solr do
 
     rescue Errno::ECONNREFUSED #not responding
       Dir.chdir(SOLR_PATH) do
-        pid = fork do
+        pid = Process.fork do
           #STDERR.close
           exec "java -Dsolr.data.dir=solr/data/#{ENV['RAILS_ENV']} -Djetty.port=#{SOLR_PORT} -jar start.jar"
         end
@@ -30,7 +31,7 @@ namespace :solr do
   
   desc 'Stops Solr. Specify the environment by using: RAILS_ENV=your_env. Defaults to development if none.'
   task :stop do
-    fork do
+    Process.fork do
       file_path = "#{SOLR_PATH}/tmp/#{ENV['RAILS_ENV']}_pid"
       if File.exists?(file_path)
         File.open(file_path, "r") do |f| 

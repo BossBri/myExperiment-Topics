@@ -41441,3 +41441,374 @@ Processing PicturesController#show (for 158.130.53.85 at 2010-11-05 14:16:55) [G
   Parameters: {"size"=>"60x60.png", "action"=>"show", "id"=>"298", "controller"=>"pictures"}
 Completed in 0.00329 (304 reqs/sec) | Rendering: 0.00004 (1%) | DB: 0.00000 (0%) 0 queries | 200 OK [http://dbclust8.cis.upenn.edu/pictures/show/298?size=60x60.png]
 Streaming file public/pictures/show/60x60/298.jpg
+Rails final load path: .
+Rails final dependency load path: C:/Source/CIS650/myExperiment-Topics/vendor/plugins/engines/lib
+enginizing plugin: engines from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/engines
+Plugin 'engines': starting load.
+Plugin 'engines': loaded.
+plugins is now: engines
+engines has started.
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.080005)[0m   [0mSELECT version FROM schema_info[0m
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/encrypted_strings with engine additions
+Plugin 'encrypted_strings': starting load.
+Plugin 'encrypted_strings': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/widgets with engine additions
+Plugin 'widgets': starting load.
+Plugin 'widgets': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/white_list with engine additions
+Plugin 'white_list': starting load.
+Plugin 'white_list': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/white_list_formatted_content with engine additions
+Plugin 'white_list_formatted_content': starting load.
+Plugin 'white_list_formatted_content': loaded.
+loading remaining plugins from ["C:/Source/CIS650/myExperiment-Topics/vendor/plugins"]
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_bookmarkable with engine additions
+Plugin 'acts_as_bookmarkable': starting load.
+Plugin 'acts_as_bookmarkable': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_commentable with engine additions
+Plugin 'acts_as_commentable': starting load.
+Plugin 'acts_as_commentable': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_rateable with engine additions
+Plugin 'acts_as_rateable': starting load.
+Plugin 'acts_as_rateable': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_solr with engine additions
+Plugin 'acts_as_solr': starting load.
+Plugin 'acts_as_solr': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux with engine additions
+checking plugin 'engines' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+checking plugin 'encrypted_strings' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+checking plugin 'widgets' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+checking plugin 'white_list' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+checking plugin 'white_list_formatted_content' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+checking plugin 'acts_as_bookmarkable' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+checking plugin 'acts_as_commentable' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+checking plugin 'acts_as_rateable' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+checking plugin 'acts_as_solr' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+checking plugin 'acts_as_taggable_redux' for 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_taggable_redux/lib/acts_as_taggable_helper'
+(file not found in application)
+Plugin 'acts_as_taggable_redux': starting load.
+Plugin 'acts_as_taggable_redux': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/acts_as_versioned with engine additions
+Plugin 'acts_as_versioned': starting load.
+Plugin 'acts_as_versioned': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/browser_filters with engine additions
+Plugin 'browser_filters': starting load.
+Plugin 'browser_filters': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/encrypted_attributes with engine additions
+Plugin 'encrypted_attributes': starting load.
+Plugin 'encrypted_attributes': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/exception_notification with engine additions
+Plugin 'exception_notification': starting load.
+Plugin 'exception_notification': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/fckeditor with engine additions
+checking plugin 'engines' for 'fckeditor_helper'
+checking plugin 'encrypted_strings' for 'fckeditor_helper'
+checking plugin 'widgets' for 'fckeditor_helper'
+checking plugin 'white_list' for 'fckeditor_helper'
+checking plugin 'white_list_formatted_content' for 'fckeditor_helper'
+checking plugin 'acts_as_bookmarkable' for 'fckeditor_helper'
+checking plugin 'acts_as_commentable' for 'fckeditor_helper'
+checking plugin 'acts_as_rateable' for 'fckeditor_helper'
+checking plugin 'acts_as_solr' for 'fckeditor_helper'
+checking plugin 'acts_as_taggable_redux' for 'fckeditor_helper'
+checking plugin 'acts_as_versioned' for 'fckeditor_helper'
+checking plugin 'browser_filters' for 'fckeditor_helper'
+checking plugin 'encrypted_attributes' for 'fckeditor_helper'
+checking plugin 'exception_notification' for 'fckeditor_helper'
+checking plugin 'fckeditor' for 'fckeditor_helper'
+==> loading from plugin 'fckeditor'
+(file not found in application)
+Plugin 'fckeditor': starting load.
+Attempting to copy plugin plugin asset files from 'C:/Source/CIS650/myExperiment-Topics/vendor/plugins/fckeditor/public' to './script/../config/../public/plugin_assets'
+Plugin 'fckeditor': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/file_column with engine additions
+Plugin 'file_column': starting load.
+Plugin 'file_column': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/flex_image with engine additions
+Plugin 'flex_image': starting load.
+Plugin 'flex_image': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/headliner with engine additions
+Plugin 'headliner': starting load.
+Plugin 'headliner': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/mannie-taverna-scufl-0.7.1 with engine additions
+Plugin 'mannie-taverna-scufl-0.7.1': starting load.
+Plugin 'mannie-taverna-scufl-0.7.1': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/mannie-taverna-t2flow-0.1.1 with engine additions
+Plugin 'mannie-taverna-t2flow-0.1.1': starting load.
+Plugin 'mannie-taverna-t2flow-0.1.1': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/oauth_plugin with engine additions
+Plugin 'oauth_plugin': starting load.
+Plugin 'oauth_plugin': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/open_id_authentication with engine additions
+Plugin 'open_id_authentication': starting load.
+Plugin 'open_id_authentication': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/paginating_find with engine additions
+Plugin 'paginating_find': starting load.
+Plugin 'paginating_find': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/qrcode with engine additions
+Plugin 'qrcode': starting load.
+Plugin 'qrcode': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/query_cache with engine additions
+Plugin 'query_cache': starting load.
+Plugin 'query_cache': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/query_stats with engine additions
+Plugin 'query_stats': starting load.
+Plugin 'query_stats': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/simile_timeline with engine additions
+Plugin 'simile_timeline': starting load.
+Plugin 'simile_timeline': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/structured_data with engine additions
+  [4;36;1mSQL (0.037003)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mAutoTable Load (0.074004)[0m   [0mSELECT * FROM auto_tables [0m
+  [4;36;1mAutoTable Columns (0.015001)[0m   [0;1mSHOW FIELDS FROM auto_tables[0m
+  [4;35;1mSQL (0.051003)[0m   [0mSHOW FIELDS FROM content_types[0m
+  [4;36;1mSQL (0.007001)[0m   [0;1mSHOW FIELDS FROM content_types[0m
+  [4;35;1mSQL (0.092005)[0m   [0mSHOW KEYS FROM content_types[0m
+  [4;36;1mSQL (0.020001)[0m   [0;1mSHOW FIELDS FROM contributions[0m
+  [4;35;1mSQL (0.008001)[0m   [0mSHOW FIELDS FROM contributions[0m
+  [4;36;1mSQL (0.031002)[0m   [0;1mSHOW KEYS FROM contributions[0m
+Plugin 'structured_data': starting load.
+Plugin 'structured_data': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/timed_cache_fragment with engine additions
+Plugin 'timed_cache_fragment': starting load.
+Plugin 'timed_cache_fragment': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/validates_captcha with engine additions
+Plugin 'validates_captcha': starting load.
+Plugin 'validates_captcha': loaded.
+loading plugin from C:/Source/CIS650/myExperiment-Topics/vendor/plugins/validates_email_veracity_of with engine additions
+Plugin 'validates_email_veracity_of': starting load.
+Plugin 'validates_email_veracity_of': loaded.
+checking plugin 'engines' for 'application_helper'
+checking plugin 'encrypted_strings' for 'application_helper'
+checking plugin 'widgets' for 'application_helper'
+checking plugin 'white_list' for 'application_helper'
+checking plugin 'white_list_formatted_content' for 'application_helper'
+checking plugin 'acts_as_bookmarkable' for 'application_helper'
+checking plugin 'acts_as_commentable' for 'application_helper'
+checking plugin 'acts_as_rateable' for 'application_helper'
+checking plugin 'acts_as_solr' for 'application_helper'
+checking plugin 'acts_as_taggable_redux' for 'application_helper'
+checking plugin 'acts_as_versioned' for 'application_helper'
+checking plugin 'browser_filters' for 'application_helper'
+checking plugin 'encrypted_attributes' for 'application_helper'
+checking plugin 'exception_notification' for 'application_helper'
+checking plugin 'fckeditor' for 'application_helper'
+checking plugin 'file_column' for 'application_helper'
+checking plugin 'flex_image' for 'application_helper'
+checking plugin 'headliner' for 'application_helper'
+checking plugin 'mannie-taverna-scufl-0.7.1' for 'application_helper'
+checking plugin 'mannie-taverna-t2flow-0.1.1' for 'application_helper'
+checking plugin 'oauth_plugin' for 'application_helper'
+checking plugin 'open_id_authentication' for 'application_helper'
+checking plugin 'paginating_find' for 'application_helper'
+checking plugin 'qrcode' for 'application_helper'
+checking plugin 'query_cache' for 'application_helper'
+checking plugin 'query_stats' for 'application_helper'
+checking plugin 'simile_timeline' for 'application_helper'
+checking plugin 'structured_data' for 'application_helper'
+checking plugin 'timed_cache_fragment' for 'application_helper'
+checking plugin 'validates_captcha' for 'application_helper'
+checking plugin 'validates_email_veracity_of' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'api_controller'
+checking plugin 'encrypted_strings' for 'api_controller'
+checking plugin 'widgets' for 'api_controller'
+checking plugin 'white_list' for 'api_controller'
+checking plugin 'white_list_formatted_content' for 'api_controller'
+checking plugin 'acts_as_bookmarkable' for 'api_controller'
+checking plugin 'acts_as_commentable' for 'api_controller'
+checking plugin 'acts_as_rateable' for 'api_controller'
+checking plugin 'acts_as_solr' for 'api_controller'
+checking plugin 'acts_as_taggable_redux' for 'api_controller'
+checking plugin 'acts_as_versioned' for 'api_controller'
+checking plugin 'browser_filters' for 'api_controller'
+checking plugin 'encrypted_attributes' for 'api_controller'
+checking plugin 'exception_notification' for 'api_controller'
+checking plugin 'fckeditor' for 'api_controller'
+checking plugin 'file_column' for 'api_controller'
+checking plugin 'flex_image' for 'api_controller'
+checking plugin 'headliner' for 'api_controller'
+checking plugin 'mannie-taverna-scufl-0.7.1' for 'api_controller'
+checking plugin 'mannie-taverna-t2flow-0.1.1' for 'api_controller'
+checking plugin 'oauth_plugin' for 'api_controller'
+checking plugin 'open_id_authentication' for 'api_controller'
+checking plugin 'paginating_find' for 'api_controller'
+checking plugin 'qrcode' for 'api_controller'
+checking plugin 'query_cache' for 'api_controller'
+checking plugin 'query_stats' for 'api_controller'
+checking plugin 'simile_timeline' for 'api_controller'
+checking plugin 'structured_data' for 'api_controller'
+checking plugin 'timed_cache_fragment' for 'api_controller'
+checking plugin 'validates_captcha' for 'api_controller'
+checking plugin 'validates_email_veracity_of' for 'api_controller'
+loading from application: api_controller
+checking plugin 'engines' for 'api_helper'
+checking plugin 'encrypted_strings' for 'api_helper'
+checking plugin 'widgets' for 'api_helper'
+checking plugin 'white_list' for 'api_helper'
+checking plugin 'white_list_formatted_content' for 'api_helper'
+checking plugin 'acts_as_bookmarkable' for 'api_helper'
+checking plugin 'acts_as_commentable' for 'api_helper'
+checking plugin 'acts_as_rateable' for 'api_helper'
+checking plugin 'acts_as_solr' for 'api_helper'
+checking plugin 'acts_as_taggable_redux' for 'api_helper'
+checking plugin 'acts_as_versioned' for 'api_helper'
+checking plugin 'browser_filters' for 'api_helper'
+checking plugin 'encrypted_attributes' for 'api_helper'
+checking plugin 'exception_notification' for 'api_helper'
+checking plugin 'fckeditor' for 'api_helper'
+checking plugin 'file_column' for 'api_helper'
+checking plugin 'flex_image' for 'api_helper'
+checking plugin 'headliner' for 'api_helper'
+checking plugin 'mannie-taverna-scufl-0.7.1' for 'api_helper'
+checking plugin 'mannie-taverna-t2flow-0.1.1' for 'api_helper'
+checking plugin 'oauth_plugin' for 'api_helper'
+checking plugin 'open_id_authentication' for 'api_helper'
+checking plugin 'paginating_find' for 'api_helper'
+checking plugin 'qrcode' for 'api_helper'
+checking plugin 'query_cache' for 'api_helper'
+checking plugin 'query_stats' for 'api_helper'
+checking plugin 'simile_timeline' for 'api_helper'
+checking plugin 'structured_data' for 'api_helper'
+checking plugin 'timed_cache_fragment' for 'api_helper'
+checking plugin 'validates_captcha' for 'api_helper'
+checking plugin 'validates_email_veracity_of' for 'api_helper'
+(file not found in application)
+ApiController: missing default helper path api_helper
+
+
+Processing ApiController#process_request (for 127.0.0.1 at 2010-11-16 00:21:06) [GET]
+  Session ID: b00144a89b9b0b79e71759c586ddc0ac
+  Parameters: {"uri"=>"announcements", "action"=>"process_request", "order"=>"reverse", "num"=>"4", "controller"=>"api"}
+  [4;35;1mAnnouncement Columns (0.004000)[0m   [0mSHOW FIELDS FROM announcements[0m
+  [4;36;1mSQL (0.002000)[0m   [0;1mSELECT count(announcements.id) AS count_announcements_id FROM announcements [0m
+  [4;35;1mAnnouncement Load (0.001000)[0m   [0mSELECT * FROM announcements ORDER BY id DESC LIMIT 0, 0[0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT count(announcements.id) AS count_announcements_id FROM announcements [0m
+Completed in 0.30502 (3 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.42203 (138%) 3 queries | 200 OK [http://localhost/announcements.xml?num=4&order=reverse]
+checking plugin 'engines' for 'application_helper'
+checking plugin 'encrypted_strings' for 'application_helper'
+checking plugin 'widgets' for 'application_helper'
+checking plugin 'white_list' for 'application_helper'
+checking plugin 'white_list_formatted_content' for 'application_helper'
+checking plugin 'acts_as_bookmarkable' for 'application_helper'
+checking plugin 'acts_as_commentable' for 'application_helper'
+checking plugin 'acts_as_rateable' for 'application_helper'
+checking plugin 'acts_as_solr' for 'application_helper'
+checking plugin 'acts_as_taggable_redux' for 'application_helper'
+checking plugin 'acts_as_versioned' for 'application_helper'
+checking plugin 'browser_filters' for 'application_helper'
+checking plugin 'encrypted_attributes' for 'application_helper'
+checking plugin 'exception_notification' for 'application_helper'
+checking plugin 'fckeditor' for 'application_helper'
+checking plugin 'file_column' for 'application_helper'
+checking plugin 'flex_image' for 'application_helper'
+checking plugin 'headliner' for 'application_helper'
+checking plugin 'mannie-taverna-scufl-0.7.1' for 'application_helper'
+checking plugin 'mannie-taverna-t2flow-0.1.1' for 'application_helper'
+checking plugin 'oauth_plugin' for 'application_helper'
+checking plugin 'open_id_authentication' for 'application_helper'
+checking plugin 'paginating_find' for 'application_helper'
+checking plugin 'qrcode' for 'application_helper'
+checking plugin 'query_cache' for 'application_helper'
+checking plugin 'query_stats' for 'application_helper'
+checking plugin 'simile_timeline' for 'application_helper'
+checking plugin 'structured_data' for 'application_helper'
+checking plugin 'timed_cache_fragment' for 'application_helper'
+checking plugin 'validates_captcha' for 'application_helper'
+checking plugin 'validates_email_veracity_of' for 'application_helper'
+loading from application: application_helper
+checking plugin 'engines' for 'workflows_controller'
+checking plugin 'encrypted_strings' for 'workflows_controller'
+checking plugin 'widgets' for 'workflows_controller'
+checking plugin 'white_list' for 'workflows_controller'
+checking plugin 'white_list_formatted_content' for 'workflows_controller'
+checking plugin 'acts_as_bookmarkable' for 'workflows_controller'
+checking plugin 'acts_as_commentable' for 'workflows_controller'
+checking plugin 'acts_as_rateable' for 'workflows_controller'
+checking plugin 'acts_as_solr' for 'workflows_controller'
+checking plugin 'acts_as_taggable_redux' for 'workflows_controller'
+checking plugin 'acts_as_versioned' for 'workflows_controller'
+checking plugin 'browser_filters' for 'workflows_controller'
+checking plugin 'encrypted_attributes' for 'workflows_controller'
+checking plugin 'exception_notification' for 'workflows_controller'
+checking plugin 'fckeditor' for 'workflows_controller'
+checking plugin 'file_column' for 'workflows_controller'
+checking plugin 'flex_image' for 'workflows_controller'
+checking plugin 'headliner' for 'workflows_controller'
+checking plugin 'mannie-taverna-scufl-0.7.1' for 'workflows_controller'
+checking plugin 'mannie-taverna-t2flow-0.1.1' for 'workflows_controller'
+checking plugin 'oauth_plugin' for 'workflows_controller'
+checking plugin 'open_id_authentication' for 'workflows_controller'
+checking plugin 'paginating_find' for 'workflows_controller'
+checking plugin 'qrcode' for 'workflows_controller'
+checking plugin 'query_cache' for 'workflows_controller'
+checking plugin 'query_stats' for 'workflows_controller'
+checking plugin 'simile_timeline' for 'workflows_controller'
+checking plugin 'structured_data' for 'workflows_controller'
+checking plugin 'timed_cache_fragment' for 'workflows_controller'
+checking plugin 'validates_captcha' for 'workflows_controller'
+checking plugin 'validates_email_veracity_of' for 'workflows_controller'
+loading from application: workflows_controller
+checking plugin 'engines' for 'workflows_helper'
+checking plugin 'encrypted_strings' for 'workflows_helper'
+checking plugin 'widgets' for 'workflows_helper'
+checking plugin 'white_list' for 'workflows_helper'
+checking plugin 'white_list_formatted_content' for 'workflows_helper'
+checking plugin 'acts_as_bookmarkable' for 'workflows_helper'
+checking plugin 'acts_as_commentable' for 'workflows_helper'
+checking plugin 'acts_as_rateable' for 'workflows_helper'
+checking plugin 'acts_as_solr' for 'workflows_helper'
+checking plugin 'acts_as_taggable_redux' for 'workflows_helper'
+checking plugin 'acts_as_versioned' for 'workflows_helper'
+checking plugin 'browser_filters' for 'workflows_helper'
+checking plugin 'encrypted_attributes' for 'workflows_helper'
+checking plugin 'exception_notification' for 'workflows_helper'
+checking plugin 'fckeditor' for 'workflows_helper'
+checking plugin 'file_column' for 'workflows_helper'
+checking plugin 'flex_image' for 'workflows_helper'
+checking plugin 'headliner' for 'workflows_helper'
+checking plugin 'mannie-taverna-scufl-0.7.1' for 'workflows_helper'
+checking plugin 'mannie-taverna-t2flow-0.1.1' for 'workflows_helper'
+checking plugin 'oauth_plugin' for 'workflows_helper'
+checking plugin 'open_id_authentication' for 'workflows_helper'
+checking plugin 'paginating_find' for 'workflows_helper'
+checking plugin 'qrcode' for 'workflows_helper'
+checking plugin 'query_cache' for 'workflows_helper'
+checking plugin 'query_stats' for 'workflows_helper'
+checking plugin 'simile_timeline' for 'workflows_helper'
+checking plugin 'structured_data' for 'workflows_helper'
+checking plugin 'timed_cache_fragment' for 'workflows_helper'
+checking plugin 'validates_captcha' for 'workflows_helper'
+checking plugin 'validates_email_veracity_of' for 'workflows_helper'
+loading from application: workflows_helper
+
+
+Processing WorkflowsController#index (for 127.0.0.1 at 2010-11-16 00:21:24) [GET]
+  Session ID: b00144a89b9b0b79e71759c586ddc0ac
+  Parameters: {"action"=>"index", "controller"=>"workflows"}
+  [4;35;1mContribution Columns (0.004000)[0m   [0mSHOW FIELDS FROM contributions[0m
+  [4;36;1mSQL (0.067003)[0m   [0;1mSELECT count(contributions.id) AS count_contributions_id, contributions.contributable_type, contributions.contributable_id AS contributions_contributable_type_contributions_contributable_id FROM contributions INNER JOIN policies ON contributions.policy_id = policies.id WHERE ((((share_mode = 0 OR share_mode = 1 OR share_mode = 2))) AND ((contributions.contributable_type = 'Workflow'))) GROUP BY contributions.contributable_type, contributions.contributable_id [0m
+Rendering  within layouts/application
+Rendering workflows/index
+  [4;35;1mWorkflow Columns (0.051003)[0m   [0mSHOW FIELDS FROM workflows[0m
+  [4;36;1mSQL (0.028002)[0m   [0;1mSELECT count(*) AS count_all, content_type_id AS content_type_id FROM workflows GROUP BY content_type_id [0m
+  [4;35;1mTag Load (0.121007)[0m   [0mSELECT DISTINCT tags.* FROM tags INNER JOIN taggings ON tags.id=taggings.tag_id WHERE ( taggings.taggable_type = 'Workflow' ) ORDER BY tags.taggings_count DESC LIMIT 50[0m
+Rendered workflows/_all_tags (0.12601)
+Rendered layouts/_paginate (0.00700)
+  [4;36;1mContribution Load (0.002000)[0m   [0;1mSELECT contributions.* FROM contributions INNER JOIN policies ON contributions.policy_id = policies.id WHERE ((((share_mode = 0 OR share_mode = 1 OR share_mode = 2))) AND ((contributions.contributable_type = 'Workflow'))) GROUP BY contributions.contributable_type, contributions.contributable_id ORDER BY rank DESC LIMIT 0, 0[0m
+Rendered contributions/_list (0.00800)
+Rendered layouts/_paginate (0.00200)
+Rendered layouts/_feed_link_tags (0.00500)
+Rendered layouts/_search (0.08501)
+Rendered workflows/_breadcrumbs (0.00600)
+Rendered layouts/_breadcrumbs_bar (0.01800)
+Rendered workflows/_subnav (0.00400)
+Rendered gadgets/_new_object (0.00500)
+Rendered gadgets/_sign_in (0.01100)
+  [4;35;1mTag Load (0.001000)[0m   [0mSELECT * FROM tags ORDER BY taggings_count DESC LIMIT 25[0m
+Rendered gadgets/_most_popular_tags (0.00600)
+Rendered layouts/_sidebar (0.03000)
+Rendered layouts/_footer (0.00800)
+Rendered layouts/_myexperiment (0.17101)
+Completed in 0.70204 (1 reqs/sec) | Rendering: 0.21201 (30%) | DB: 0.27402 (39%) 7 queries | 200 OK [http://localhost/workflows]
