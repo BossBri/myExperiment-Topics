@@ -246,6 +246,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect 'files/:id/download/:name', :controller => 'blobs', :action => 'named_download', :requirements => { :name => /.*/ }
   
+  map.connect 'topic', :controller => 'topics', :action => 'index'
   # (general) announcements
   # NB! this is moved to the bottom of the file for it to be discovered
   # before 'announcements' resource within 'groups'
