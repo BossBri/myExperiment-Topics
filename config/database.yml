@@ -15,8 +15,9 @@ development:
   adapter: mysql
   database: m2_development
   username: root
-  password: yizryd
+  password: datab01nk
   host: localhost
+  socket: /var/lib/mysql/mysql.sock
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
@@ -25,12 +26,12 @@ test:
   adapter: mysql
   database: m2_test
   username: root
-  password: yizryd
+  password: datab01nk
   host: localhost
 
 production:
   adapter: mysql
   database: m2_production
   username: root
-  password: yizryd
+  password: 
   host: localhost
