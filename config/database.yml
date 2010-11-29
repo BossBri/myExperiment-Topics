@@ -11,6 +11,12 @@
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+#development:
+#  adapter: mysql
+#  database: m2_development
+#  username: brian
+#  password: snoyl
+#  host: dbclust8.cis.upenn.edu
 development:
   adapter: mysql
   database: m2_development
