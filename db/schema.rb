@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 93) do
+ActiveRecord::Schema.define(:version => 95) do
 
   create_table "activity_limits", :force => true do |t|
     t.column "contributor_type", :string,   :null => false
@@ -534,11 +534,31 @@ ActiveRecord::Schema.define(:version => 93) do
     t.column "runtime",     :datetime
   end
 
+  create_table "topic_tag_feedback", :force => true do |t|
+    t.column "topic_id",     :integer
+    t.column "tag_id",       :integer
+    t.column "user_id",      :integer
+    t.column "probability",  :float
+    t.column "display_flag", :boolean
+    t.column "score",        :integer
+    t.column "submit_dt",    :date
+  end
+
   create_table "topic_tag_map", :force => true do |t|
     t.column "topic_id",     :integer
     t.column "tag_id",       :integer
     t.column "probability",  :float
     t.column "display_flag", :boolean
+  end
+
+  create_table "topic_workflow_feedback", :force => true do |t|
+    t.column "topic_id",     :integer
+    t.column "workflow_id",  :integer
+    t.column "user_id",      :integer
+    t.column "probability",  :float
+    t.column "display_flag", :boolean
+    t.column "score",        :integer
+    t.column "submit_dt",    :date
   end
 
   create_table "topic_workflow_map", :force => true do |t|
