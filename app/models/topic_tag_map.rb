@@ -11,9 +11,19 @@ require 'scufl/model'
 require 'scufl/parser'
 
 class TopicTagMap < ActiveRecord::Base
+  set_table_name "topic_tag_map"
+  
+  attr_accessible :probability
+
   belongs_to :topic
   validates_presence_of :topic
   
   belongs_to :tag
-  validates_prsence_of :tag
+  validates_presence_of :tag
+  
+  def self.probability_ordered_tags
+	self.find(
+	  :all,
+	  :order => 'topic_tag_map.probability DESC')
+  end
 end

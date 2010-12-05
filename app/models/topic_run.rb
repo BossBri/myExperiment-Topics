@@ -15,11 +15,18 @@ require 'scufl/parser'
 
 class TopicRun < ActiveRecord::Base
 
-  attr_accessor :desc, :create_dt
+  attr_accessor :desc, :runtime
 
-  has_many :topic,
+  has_many :topics,
            :class_name => "Topic",
            :foreign_key => :run_id,
            :dependent => :destroy
+		   
+  def self.most_recent
+    self.find(
+	  :all,
+	  :limit => 1,
+	  :order => 'topic_runs.runtime DESC')
+  end
 		   
 end

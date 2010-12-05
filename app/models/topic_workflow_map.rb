@@ -11,9 +11,11 @@ require 'scufl/model'
 require 'scufl/parser'
 
 class TopicWorkflowMap < ActiveRecord::Base
+  set_table_name "topic_workflow_map"  
+  
   belongs_to :topic
   validates_presence_of :topic
   
   belongs_to :workflow
-  validates_prsence_of :workflow
+  validates_presence_of :workflow
 end

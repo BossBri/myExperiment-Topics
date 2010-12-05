@@ -72,7 +72,14 @@ class Contribution < ActiveRecord::Base
         "order"  => "licenses.title, rank DESC",
         "option" => "licence",
         "label"  => "Licence"
-      }
+      },
+	  
+	  {
+	    "option" => "topic",
+		"order"  => "topic_workflow_map.probability DESC",
+		"joins"  => "INNER JOIN topic_workflow_map on contributions.id = topic_workflow_map.workflow_id",
+		"label"  => "Topic"
+	  }
     ]
   end
 

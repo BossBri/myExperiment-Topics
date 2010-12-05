@@ -21,90 +21,29 @@ class TopicsController < ApplicationController
   require 'scufl/parser'
   require 'scufl/dot'
  
-  # GET /workflows
+  # GET /topics
   def index
     respond_to do |format|
       format.html do
-        @contributions = Contribution.contributions_list(Workflow, params, current_user)
-        # index.rhtml
-      end
-      format.rss do
-        #@workflows = Workflow.find(:all, :order => "updated_at DESC") # list all (if required)
-        render :action => 'index.rxml', :layout => false
+        @lastrun = TopicRun.most_recent.first
       end
     end
+  end
+  
+  def show
+	respond_to do |format|
+	  format.html do
+	    #params["joins"] = "INNER JOIN topic_workflow_map m ON (m.workflow_id = workflows.id)"
+		params["order"] = "topic"
+	    @contributions = Contribution.contributions_list(Workflow, params, current_user)
+	    @currtopic = Topic.find(params[:id])
+		
+	  end
+	end  
   end
     
 protected
-
-  def find_workflows_rss
-    # Only carry out if request is for RSS
-    if params[:format] and params[:format].downcase == 'rss'
-      @rss_workflows = Authorization.authorised_index(Workflow, :all, :limit => 30, :order => 'updated_at DESC', :authorised_user => current_user)
-    end
-  end
-  
-  def find_workflow_auth
-    begin
-      # Use eager loading only for 'show' action
-      if action_name == 'show'
-        workflow = Workflow.find(params[:id], :include => [ { :contribution => :policy }, :citations, :tags, :ratings, :versions, :reviews, :comments ])
-      else
-        workflow = Workflow.find(params[:id])
-      end
-      
-      if Authorization.is_authorized?(action_name, nil, workflow, current_user)
-        @latest_version_number = workflow.current_version
-        @workflow = workflow
-        if params[:version]
-          if (viewing = @workflow.find_version(params[:version]))
-            @viewing_version_number = params[:version].to_i
-            @viewing_version = viewing
-          else
-            error("Workflow version not found (possibly has been deleted)", "not found (is invalid)", :version)
-          end
-        else
-          @viewing_version_number = @latest_version_number
-          @viewing_version = @workflow.find_version(@latest_version_number)
-        end
-        
-        @authorised_to_edit = logged_in? && Authorization.is_authorized?('edit', nil, @workflow, current_user)
-        if @authorised_to_edit
-          # can save a call to .is_authorized? if "edit" was already found to be allowed - due to cascading permissions
-          @authorised_to_download = true
-        else
-          @authorised_to_download = Authorization.is_authorized?('download', nil, @workflow, current_user)
-        end
-        
-        # remove scufl from workflow if the user is not authorized for download
-        @viewing_version.content_blob.data = nil unless @authorised_to_download
-        @workflow.content_blob.data = nil unless @authorised_to_download
-          
-        @workflow_entry_url = url_for :only_path => false,
-                                :host => base_host,
-                                :id => @workflow.id
-        
-        @download_url = url_for :action => 'download',
-                                :id => @workflow.id, 
-                                :version => @viewing_version_number.to_s
-        
-        @named_download_url = url_for @workflow.named_download_url + "?version=#{@viewing_version_number.to_s}" 
-                                      
-        @launch_url = "/workflows/#{@workflow.id}/launch.whip?version=#{@viewing_version_number.to_s}"
-
-        logger.debug("@latest_version_number = #{@latest_version_number}")
-        logger.debug("@viewing_version_number = #{@viewing_version_number}")
-        logger.debug("@workflow.image != nil = #{@workflow.image != nil}")
-      else
-        error("Workflow not found (id not authorized)", "is invalid (not authorized)")
-        return false
-      end
-    rescue ActiveRecord::RecordNotFound
-      error("Workflow not found", "is invalid")
-      return false
-    end
-  end
-  
+    
   def initiliase_empty_objects_for_new_pages
     if ["new", "create"].include?(action_name)
       @workflow = Workflow.new
@@ -131,43 +70,6 @@ protected
       
     if params[:new_workflow] && params[:new_workflow][:rev_comments]
       @new_workflow.rev_comments = params[:new_workflow][:rev_comments]
-    end
-  end
-  
-  def set_sharing_mode_variables
-    case action_name
-      when "new"
-        @sharing_mode  = 0
-        @updating_mode = 6
-      when "create", "update"
-        @sharing_mode  = params[:sharing][:class_id].to_i if params[:sharing]
-        @updating_mode = params[:updating][:class_id].to_i if params[:updating]
-      when "show", "edit"
-        @sharing_mode  = @workflow.contribution.policy.share_mode
-        @updating_mode = @workflow.contribution.policy.update_mode
-    end
-  end
-  
-  def check_file_size
-    case action_name
-      when "create"           then view_to_render_on_fail = "new"
-      when "create_version"   then view_to_render_on_fail = "new_version"
-    end
-    
-    # Check that a file has been selected 
-    if params[:workflow][:file].size == 0
-      respond_to do |format|
-        flash.now[:error] = "Please select a valid workflow file to upload. If you have selected a file, it might be empty."
-        format.html { render :action => view_to_render_on_fail }
-      end
-      return false
-    # Check that the size of the workflow file doesn't exceed the max size
-    elsif params[:workflow][:file].size > Conf.max_upload_size
-      respond_to do |format|
-        flash.now[:error] = "The workflow file/script uploaded is too big. The maximum upload size for workflows is #{number_to_human_size(Conf.max_upload_size)}."
-        format.html { render :action => view_to_render_on_fail }
-      end
-      return false
     end
   end
   

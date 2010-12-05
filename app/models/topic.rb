@@ -16,6 +16,18 @@ require 'scufl/parser'
 class Topic < ActiveRecord::Base
 
   attr_accessor :name
+  
+  belongs_to :topic_run
+  
+  has_many :topic_tag_map,
+           :class_name => "TopicTagMap",
+		   :foreign_key => :topic_id,
+		   :dependent => :destroy
+		   
+  has_many :topic_workflow_map,
+           :class_name => "TopicWorkflowMap",
+		   :foreign_key => :topic_id,
+		   :dependent => :destroy		   
 
   has_many :topic_tag_feedback,
            :class_name => "TopicTagFeedback",
