@@ -1,15 +1,18 @@
 <div id="topic container">
-	<table class="quick_add">
-		<% item = 1 %>
-		<% @lastrun.topics.each do |topic| -%>
-			<tr class="quick_add"><td>
-			<b><%= "<a href=\"#{topic_path(topic)}\">Topic #{item}</a>" %></b></td></tr>
+	<% item = 1 %>
+	<% @lastrun.topics.each do |topic| -%>
+	<table class="topic">
+		<th colspan="3" class="topic">
+			<b><%= "<a href=\"#{topic_path(topic)}\">Topic #{if topic.name.blank? then topic.id else topic.name end}</a>" %></b></th>
 			<% topic.topic_tag_map.probability_ordered_tags.each do |tag| -%>
-				<tr class="quick_add"><td>
+				<tr><td class="tag">
 				<%= "<a href=\"#{tag_path(tag)}\">#{tag.tag.to_s}</a>" %>
-				</td></tr>
+				</td>
+				<% if logged_in? %>					
+					<%= render :partial => "tag_feedback", :locals => {:topic => topic, :tag => tag } %></tr>
+				<% end %>
 			<% end -%>			
 			<% item = item+1 -%>
-		<% end -%>
-	</table>
+		</table><br />	
+	<% end -%>
 </div>

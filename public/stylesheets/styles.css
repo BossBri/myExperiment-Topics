@@ -2032,3 +2032,31 @@ table.quick_add td.submit {
   padding-top: 1em;
 }
 
+/* Styles Related to topics */
+table.topic {
+  border-collapse:collapse;
+  border: 1px solid black;
+  width: 50%;
+}
+
+table.topic th{
+  border: 1px solid black;
+  text-align:center;
+  width: 100%;
+  background-color: #FFFFCC; 
+}
+
+table.topic td.tag{
+  text-align:left;
+  width: 75%;
+}
+
+table.topic td.tag_vote{
+  text-align:center;
+  width: 25%;
+}
+
+table.topic td.tag_vote a:link{
+  text-decoration:underline;
+}
+/* End syles related to topics */

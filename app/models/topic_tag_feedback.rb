@@ -11,12 +11,16 @@ require 'scufl/model'
 require 'scufl/parser'
 
 class TopicTagFeedback < ActiveRecord::Base
+  set_table_name "topic_tag_feedback"
+  
   belongs_to :topic
   validates_presence_of :topic
   
   belongs_to :tag
-  validates_prsence_of :tag
+  validates_presence_of :tag
   
   belongs_to :user
   validates_presence_of :user
+  
+  attr_accessible :score
 end
