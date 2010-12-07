@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 88) do
+ActiveRecord::Schema.define(:version => 95) do
 
   create_table "activity_limits", :force => true do |t|
     t.column "contributor_type", :string,   :null => false
@@ -146,13 +146,13 @@ ActiveRecord::Schema.define(:version => 88) do
     t.column "updated_at",           :datetime
     t.column "downloads_count",      :integer,  :default => 0
     t.column "viewings_count",       :integer,  :default => 0
+    t.column "label",                :string
     t.column "rating",               :float
-    t.column "content_type_id",      :integer
-    t.column "rank",                 :float
     t.column "license_id",           :integer
+    t.column "rank",                 :float
+    t.column "content_type_id",      :integer
     t.column "site_downloads_count", :integer,  :default => 0
     t.column "site_viewings_count",  :integer,  :default => 0
-    t.column "label",                :string
   end
 
   add_index "contributions", ["contributable_id", "contributable_type"], :name => "index_contributions_on_contributable_id_and_contributable_type"
@@ -518,6 +518,59 @@ ActiveRecord::Schema.define(:version => 88) do
     t.column "crypted_password", :string
     t.column "created_at",       :datetime
     t.column "updated_at",       :datetime
+  end
+
+  create_table "topic_feedback", :force => true do |t|
+    t.column "topic_id",     :integer
+    t.column "user_id",      :integer
+    t.column "probability",  :float
+    t.column "display_flag", :boolean
+    t.column "score",        :integer
+    t.column "submit_dt",    :date
+  end
+
+  create_table "topic_runs", :force => true do |t|
+    t.column "description", :string
+    t.column "runtime",     :datetime
+  end
+
+  create_table "topic_tag_feedback", :force => true do |t|
+    t.column "topic_id",     :integer
+    t.column "tag_id",       :integer
+    t.column "user_id",      :integer
+    t.column "probability",  :float
+    t.column "display_flag", :boolean
+    t.column "score",        :integer
+    t.column "submit_dt",    :date
+  end
+
+  create_table "topic_tag_map", :force => true do |t|
+    t.column "topic_id",     :integer
+    t.column "tag_id",       :integer
+    t.column "probability",  :float
+    t.column "display_flag", :boolean
+  end
+
+  create_table "topic_workflow_feedback", :force => true do |t|
+    t.column "topic_id",     :integer
+    t.column "workflow_id",  :integer
+    t.column "user_id",      :integer
+    t.column "probability",  :float
+    t.column "display_flag", :boolean
+    t.column "score",        :integer
+    t.column "submit_dt",    :date
+  end
+
+  create_table "topic_workflow_map", :force => true do |t|
+    t.column "topic_id",     :integer
+    t.column "workflow_id",  :integer
+    t.column "probability",  :float
+    t.column "display_flag", :boolean
+  end
+
+  create_table "topics", :force => true do |t|
+    t.column "name",   :string
+    t.column "run_id", :integer
   end
 
   create_table "users", :force => true do |t|

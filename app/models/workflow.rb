@@ -20,6 +20,10 @@ class Workflow < ActiveRecord::Base
   has_many :citations, 
            :order => "created_at DESC",
            :dependent => :destroy
+		   
+  has_many :topic_workflow_map,
+           :order => "probability DESC",
+		   :dependent => :destroy
 
   belongs_to :content_blob
   belongs_to :content_type
