@@ -249,6 +249,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # map.connect 'topics', :controller => 'topics', :action => 'index'
   map.connect 'topics/tag_feedback', :controller => 'topics', :action => 'tag_feedback'
+  map.connect 'topics/topic_feedback', :controller => 'topics', :action => 'topic_feedback'
   map.resources :topics
   # map.connect 'topics/:id', :controller => 'topics', :action => 'show'
   # (general) announcements

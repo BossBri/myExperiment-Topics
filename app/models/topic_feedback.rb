@@ -11,9 +11,13 @@ require 'scufl/model'
 require 'scufl/parser'
 
 class TopicFeedback < ActiveRecord::Base
+  set_table_name "topic_feedback"
+  
   belongs_to :topic
   validates_presence_of :topic
   
   belongs_to :user
   validates_presence_of :user
+  
+  attr_accessible :score, :submit_dt
 end

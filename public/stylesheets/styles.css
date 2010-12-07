@@ -2046,9 +2046,17 @@ table.topic th{
   background-color: #FFFFCC; 
 }
 
+table.topic div.topic_feedback{
+  text-align:right;
+}
+
 table.topic td.tag{
   text-align:left;
   width: 75%;
+}
+
+table.topic div.topic_feedback a:link{
+  text-decoration:underline;
 }
 
 table.topic td.tag_vote{
