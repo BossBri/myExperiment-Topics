@@ -25,7 +25,7 @@ class TopicsController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        @lastrun = TopicRun.most_recent.first
+		@curr_run = TopicRun.most_recent
       end
     end
   end
@@ -33,9 +33,6 @@ class TopicsController < ApplicationController
   def show
 	respond_to do |format|
 	  format.html do
-	    #params["joins"] = "INNER JOIN topic_workflow_map m ON (m.workflow_id = workflows.id)"
-		#params["order"] = "topic"
-	    #@contributions = Contribution.contributions_list(Workflow, params, current_user)
 	    @currtopic = Topic.find(params[:id])
 	  end
 	end  
