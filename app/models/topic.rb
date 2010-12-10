@@ -1,23 +1,9 @@
-# myExperiment: app/models/attribution.rb
+# myExperiment: app/models/topic.rb
 #
 
-require 'acts_as_site_entity'
-require 'acts_as_contributable'
-require 'acts_as_creditable'
-require 'acts_as_attributor'
-require 'acts_as_attributable'
-require 'explicit_versioning'
-require 'acts_as_reviewable'
-require 'acts_as_runnable'
-
-require 'scufl/model'
-require 'scufl/parser'
-
 class Topic < ActiveRecord::Base
-
-  attr_accessor :name
   
-  belongs_to :topic_run
+  belongs_to :run, :class_name => "TopicRun", :foreign_key => "run_id"
   
   has_many :topic_tag_map,
            :class_name => "TopicTagMap",
@@ -38,4 +24,9 @@ class Topic < ActiveRecord::Base
            :class_name => "TopicFeedback",
            :foreign_key => :topic_id,
            :dependent => :destroy
+		   
+  def name
+    self.attributes["name"]
+  end
+		   
 end

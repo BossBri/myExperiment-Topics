@@ -2036,7 +2036,7 @@ table.quick_add td.submit {
 table.topic {
   border-collapse:collapse;
   border: 1px solid black;
-  width: 50%;
+  width: 40%;
 }
 
 table.topic th{
@@ -2047,12 +2047,13 @@ table.topic th{
 }
 
 table.topic div.topic_feedback{
-  text-align:right;
+  text-align:center;
+  margin-top:7px;
 }
 
 table.topic td.tag{
   text-align:left;
-  width: 75%;
+  width: 60%;
 }
 
 table.topic div.topic_feedback a:link{
@@ -2061,10 +2062,7 @@ table.topic div.topic_feedback a:link{
 
 table.topic td.tag_vote{
   text-align:center;
-  width: 25%;
+  width: 40%;
 }
 
-table.topic td.tag_vote a:link{
-  text-decoration:underline;
-}
 /* End syles related to topics */

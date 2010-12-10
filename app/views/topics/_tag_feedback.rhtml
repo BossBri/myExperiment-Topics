@@ -4,7 +4,7 @@
 	<td class="tag_vote">
 	<%= "<div id=\"tag_feedback_div_#{topic.id}_#{tag.tag.id}\">" %>
 	
-	<%= link_to_remote( "Good", {:url => { :controller => "topics", :action => "tag_feedback", :topic_id => topic.id, :user_id => current_user.id, :tag_id => tag.tag.id, :score => 1 } } ) %>
-	<%= link_to_remote( "Bad", {:url => { :controller => "topics", :action => "tag_feedback", :topic_id => topic.id, :user_id => current_user.id, :tag_id => tag.tag.id, :score => -1 } } ) %>
+	<%= link_to_remote( "<img src=\"images/thumbsup.png\">", {:url => { :controller => "topics", :action => "tag_feedback", :topic_id => topic.id, :user_id => current_user.id, :tag_id => tag.tag.id, :score => 1 } } ) %>
+	<%= link_to_remote( "<img src=\"images/thumbsdown.png\">", {:url => { :controller => "topics", :action => "tag_feedback", :topic_id => topic.id, :user_id => current_user.id, :tag_id => tag.tag.id, :score => -1 } } ) %>
 	</div></td>
 <% end %>
