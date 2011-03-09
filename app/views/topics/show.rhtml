@@ -1,5 +1,5 @@
-<% topicName = (if @currtopic.name.blank? then " #{@currtopic.id}" else " #{@currtopic.name}" end) -%>
-<%= "<h1>Workflow Results for Topic#{topicName}</h1>" %>
+<% topicName = (if @currtopic.name.blank? then "Topic #{@currtopic.id}" else " #{@currtopic.name}" end) -%>
+<%= "<h1>Workflows for #{topicName}</h1>" %>
 
 <% cache(:controller => 'workflows', :action => 'all_tags') do -%>
 	<%= render :partial => "topics/topic_tag_cloud", :locals => {:tags => @currtopic.topic_tag_map, :topicname => topicName } %>

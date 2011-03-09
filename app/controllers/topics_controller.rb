@@ -1,3 +1,4 @@
+# -*- coding: undecided -*-
 # myExperiment: app/controllers/topics_controller.rb
 #
 # Copyright (c) 2007 University of Manchester and the University of Southampton.
@@ -99,13 +100,20 @@ class TopicsController < ApplicationController
 	  # page.html {redirect_to topics_path }
 	  response.html {
 		render :update  do |page|
-		  page.replace_html "topic_feedback_#{params[:topic_id]}", "Thanks!"
+
+                if this_topic.name.blank? 
+                then topicName = "Topic #{this_topic.id}" 
+                else topicName = this_topic.name 
+                end
+                topicLink = "<a href=\"#{topic_path(this_topic)}\">#{topicName}</a>"
+
+                page.replace_html "topic_feedback_#{params[:topic_id]}", "#{topicLink} &nbsp;&nbsp;&nbsp;Thanks for your feedback!"
 		end
 	  }
 	  end
 	end
   end
-    
+
 protected
   
 private
