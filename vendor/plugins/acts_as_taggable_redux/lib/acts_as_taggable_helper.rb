@@ -75,4 +75,61 @@ module ActsAsTaggableHelper
     html <<   %(  </ul>\n)
     html <<   %(</div>\n)
   end
+  
+def tag_cloud_from_collection_with_feedback(tags, topic, current_user, logged_in, link_to_type=nil)
+    tags = tags.sort { |a, b|
+      a.name.downcase <=> b.name.downcase
+    }
+    
+    # tags array might contain duplicates (however this is ok, because
+    # it is planned to display the tag cloud in a way that most frequent
+    # tags for current contributable are of larger size with no
+    # respect to how frequent they are on the website in general);
+    #
+    # for now, we just filter out duplicates, so that each tag is display
+    # only once in the tag cloud
+    tags = tags.uniq
+    
+    
+    # TODO: add option to specify which classes you want and overide this if you want?
+    classes = %w(popular v-popular vv-popular vvv-popular vvvv-popular)
+    
+    max, min = 0, 0
+    tags.each do |tag|
+      max = tag.taggings_count if tag.taggings_count > max
+      min = tag.taggings_count if tag.taggings_count < min
+    end
+    
+    divisor = ((max - min) / classes.size) + 1
+    
+    count = 0;
+    
+    html =    %(<div class="hTagcloud">\n)
+    html <<   %(  <ul class="popularity">\n)
+    tags.each do |tag|
+      html << %(    <li>)
+      
+	unless link_to_type.blank?
+	  html << "<a href='#{tag_url(Tag.find(:first, :conditions => ["name = ?", tag.name]))}?type=#{link_to_type}' class='#{classes[(tag.taggings_count - min) / divisor]}'>#{h(tag.name)}</a>"
+	  if ! topic.topic_tag_feedback.exists?( :user_id => current_user, :tag_id => tag.id )
+		html << "<div id=\"tag_feedback_div_#{topic.id}_#{tag.id}\" class=\"tag_feedback\">"
+		html << link_to_remote( "<img src=\"images/thumbsup.png\">", {:url => { :controller => link_to_type, :action => "tag_feedback", :topic_id => topic.id, :user_id => current_user.id, :tag_id => tag.id, :score => 1 } } )
+		html << link_to_remote( "<img src=\"images/thumbsdown.png\">", {:url => { :controller => link_to_type, :action => "tag_feedback", :topic_id => topic.id, :user_id => current_user.id, :tag_id => tag.id, :score => -1 } } )
+		html << "</div>"
+	  end
+	else
+	  html << "<a href='#{tag_url(Tag.find(:first, :conditions => ["name = ?", tag.name]))}' class='#{classes[(tag.taggings_count - min) / divisor]}'>#{h(tag.name)}</a>"
+	end
+      
+      html << %(</li>\n)
+      
+      count += 1;
+      
+      if count < tags.length
+        html << %(<li> | </li>\n)
+      end
+    end
+    html <<   %(  </ul>\n)
+    html <<   %(</div>\n)
+  end
 end

@@ -22,8 +22,8 @@
 		<% end %>
 	   </h2>
 
-	   <%= "<div id=\"tag_cloud_container_#{topic.id}\">" %>
- 			<%= render :partial => "topics/topic_tag_cloud", :locals => {:tags => topic.topic_tag_map, :topicname => topicName } %>
+	   <%= "<div id=\"tag_cloud_container_#{topic.id}\" class=\"tag_cloud_container\">" %>
+ 			<%= render :partial => "topics/topic_tag_cloud", :locals => {:tags => topic.topic_tag_map, :topicname => topicName, :topic => topic } %>
            </div> 
 	<% end -%>
 </div>

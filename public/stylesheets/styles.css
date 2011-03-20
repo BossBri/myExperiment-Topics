@@ -2065,4 +2065,8 @@ table.topic td.tag_vote{
   width: 40%;
 }
 
+div.tag_feedback{
+	display:inline;
+}
+
 /* End syles related to topics */

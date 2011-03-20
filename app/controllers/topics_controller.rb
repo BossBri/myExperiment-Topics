@@ -68,7 +68,7 @@ class TopicsController < ApplicationController
 	  # page.html {redirect_to topics_path }
 	  response.html {
 		render :update  do |page|
-		  page.replace_html "tag_feedback_div_#{params[:topic_id]}_#{params[:tag_id]}", "Thanks!"
+		  page.replace_html "tag_feedback_div_#{params[:topic_id]}_#{params[:tag_id]}", ""
 		end
 	  }
 	  end
