@@ -75,7 +75,7 @@ stylesheet: styles
 #
 #            NOTE: No trailing slash.
 
-base_uri: http://www.example.com
+base_uri: http://clust-dbclust8.dbgroup.cis.upenn.edu:3000/
 
 # admins - Set "admins" to the list of usernames of people that are
 #          administrators of this installation.  This is "Username" that is set
@@ -297,19 +297,14 @@ max_upload_size: 20971520
 # solr_enable - Set solr_enable to true to enable the search facility - this
 #               requires a running solr server.
 
-solr_enable: true
+#solr_enable: true
+solr_enable: false
 
 # smtp - Email configuration.  These details are used to connect to a SMTP
 #        server instead of sendmail.
 
 smtp:
 
-  :address:        "smtp.gmail.com"
-  :port:           465,
-  :domain:         ""
-  :authentication: :login
-  :user_name:      "BossBri"
-  :password:       "googleboss"
 
 # show_debug - Shows query statistics in the footer: "Queries in Controller",
 #              "Queries in View" and "Query Time".

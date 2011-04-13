@@ -25,7 +25,7 @@ class TopicRun < ActiveRecord::Base
   def self.most_recent
     self.find(
 	  :first,
-	  :order => 'topic_runs.runtime DESC')
+	  :order => 'topic_runs.id DESC')
   end
 		   
 end
